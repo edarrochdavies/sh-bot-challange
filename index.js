@@ -32,7 +32,7 @@ app.get('/webhook/', function (req,res){
 
 app.post('/webhook/', function(req, res){
   let message_events = req.body.entry[0].messaging
-  console.log("msg  events is " + req.body)
+  console.log("msg  events is " + JSON.stringify(req.body))
     for (let i = 0; i < message_events.length; i++){
       let event = message_events[i]
       let sender = event.sender.id
@@ -53,9 +53,9 @@ function sendText(sender, text){
       method: "POST",
       json:{
         receipt: {id: sender},
-        message: messageData
-
-      }, function(error, response, body) {
+        message: messageData,
+      },
+       function(error, response, body) {
         if (error) {
           console.log("sending error")
         } else if ( response.body.error) {
