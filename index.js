@@ -54,10 +54,10 @@ function sendText(sender, text){
       url: "https://graph.facebook.com/v2.6/me/messages",
       qs: {access_token: token},
       method: "POST",
-      json:{
-        receipt: {id: sender},
+      json: {
+        recipient: {id: sender},
         message: messageData,
-      },
+      }
        function(error, response, body) {
         if (error) {
           console.log("sending error")
