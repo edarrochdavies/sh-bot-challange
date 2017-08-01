@@ -22,7 +22,7 @@ app.get('/', function(req,res){
 
 //Facebook
 app.get('/webhook/', function (req,res){
-  if (req.query['hub.verify_token'] == ""){
+  if (req.query['hub.verify_token'] == "SolutionsStillRock"){
     res.send(req.query['hub.challenge'])
   }
   res.send("Wrong Token")
