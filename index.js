@@ -37,7 +37,9 @@ app.post('/webhook/', function(req, res){
       let event = message_events[i]
       let sender = event.sender.id
         if (event.message && event.message.text) {
+
           let text = event.message.text
+          console.log("text is " + text)
           sendText(sender, "Text echo: " + text.substring(0,100))
         }
     }
@@ -46,6 +48,7 @@ app.post('/webhook/', function(req, res){
 
 
 function sendText(sender, text){
+  console.log("sending text")
   let messageData = {text: text}
     request({
       url: "https://graph.facebook.com/v2.6/me/messages",
