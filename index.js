@@ -20,7 +20,7 @@ app.get('/', function(req,res){
   res.send('Hi I am a chat bot')
 })
 
-let token = ""
+let token = "EAAGZCkaJSMrQBAMdJIN7ZC8FXKJo5hyXe9kgRhRLFaI49ME5uZCDXZCo8PMHFJiN5aMtZAPYzO8lRhnWf9eWjXSdzK4u36oYfut9cEJzZB7SNA8ObF64ZBoDrGByayK3jXq87mMINh29avK62BLECY1fpS5iKzJZABfTZBZARDVQaRWwZDZD"
 
 //Facebook
 app.get('/webhook/', function (req,res){
@@ -52,7 +52,7 @@ function sendText(sender, text){
       method: "POST",
       json:{
         receipt: {id: sender},
-        message: : messageData
+        message: messageData
 
       }, function(error, response, body) {
         if (error) {
