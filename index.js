@@ -9,9 +9,9 @@ const request = require('request');
 //var users = require('./routes/users');
 
 var app = express();
-
-app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 
 app.set('port', (process.env.PORT || 5000))
 
@@ -32,7 +32,7 @@ app.get('/webhook/', function (req,res){
 
 app.post('/webhook/', function(req, res){
   let message_events = req.body.entry[0].messaging
-  console.log("msg  events is " + message_events)
+  console.log("msg  events is " + req.body)
     for (let i = 0; i < message_events.length; i++){
       let event = message_events[i]
       let sender = event.sender.id
