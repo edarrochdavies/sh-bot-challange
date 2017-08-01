@@ -57,7 +57,7 @@ function sendText(sender, text){
       json: {
         recipient: {id: sender},
         message: messageData,
-      }
+      },
        function(error, response, body) {
         if (error) {
           console.log("sending error")
