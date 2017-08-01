@@ -32,7 +32,7 @@ app.get('/webhook/', function (req,res){
 
 app.post('/webhook/', function(req, res){
   let message_events = req.body.entry[0].messaging
-    for (let i = 0; i=messge_events.length; i++){
+    for (let i = 0; i=message_events.length; i++){
       let event = message_events[i]
       let sender = event.sender.id
         if (event.message && event.message.text) {
