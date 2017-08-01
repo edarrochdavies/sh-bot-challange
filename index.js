@@ -24,7 +24,7 @@ let token = "EAAGZCkaJSMrQBAMdJIN7ZC8FXKJo5hyXe9kgRhRLFaI49ME5uZCDXZCo8PMHFJiN5a
 
 //Facebook
 app.get('/webhook/', function (req,res){
-  if (req.query['hub.verify_token'] == "SolutionsStillRock"){
+  if (req.query['hub.verify_token'] === "SolutionsStillRock"){
     res.send(req.query['hub.challenge'])
   }
   res.send("Wrong Token")
@@ -32,6 +32,7 @@ app.get('/webhook/', function (req,res){
 
 app.post('/webhook/', function(req, res){
   let message_events = req.body.entry[0].messaging
+  console.log("msg  events is " + message_events)
     for (let i = 0; i=message_events.length; i++){
       let event = message_events[i]
       let sender = event.sender.id
